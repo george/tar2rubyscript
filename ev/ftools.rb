@@ -229,4 +229,13 @@ class File
         FileUtils.mkpath(dir)
       end
   end
+
+  def self.copy(from,to)
+      if $haveftools
+        super(from,to)    
+      else
+        FileUtils.copy(from,to)
+      end
+  end
+
 end
