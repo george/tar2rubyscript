@@ -222,20 +222,15 @@ class File
 
     res
   end
-  def self.mkpath(dir)
-      if $haveftools
-        super(dir)    
-      else
+  unless $haveftools
+     def self.mkpath(dir)
         FileUtils.mkpath(dir)
       end
-  end
+	  
 
-  def self.copy(from,to)
-      if $haveftools
-        super(from,to)    
-      else
+     def self.copy(from,to)
         FileUtils.copy(from,to)
-      end
-  end
+     end
 
+  end
 end
